@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.coinweb.mapper.MemberMapper">
+<mapper namespace="com.example.coinwebadmin.mapper.MemberMapper">
     <insert id="insertMember" parameterType="hashmap">
         insert into member
             (email, password, name, phone, address, detail)
@@ -15,5 +15,13 @@
         from
             member
         where email=#{email} and password=#{password}
+    </select>
+    
+    <select id="selectCntMember" resultType="int">
+        select count(*) from member
+    </select>
+
+    <select id="selectAllMember" resultType="hashmap">
+        select email, name, phone, address, detail, indate from member
     </select>
 </mapper>

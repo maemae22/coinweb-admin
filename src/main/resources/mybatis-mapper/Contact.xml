@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.coinweb.mapper.ContactMapper">
+<mapper namespace="com.example.coinwebadmin.mapper.ContactMapper">
     <insert id="insertContact" parameterType="hashmap">
         insert into contact
             (name, email, phone, message)
@@ -9,4 +9,11 @@
             (#{name}, #{email}, #{phone}, #{message})
     </insert>
 
+    <select id="selectCntContact" resultType="int">
+        select count(*) from contact
+    </select>
+
+    <select id="selectAllContact" resultType="hashmap">
+        select id, name, email, phone, message, indate from contact
+    </select>
 </mapper>

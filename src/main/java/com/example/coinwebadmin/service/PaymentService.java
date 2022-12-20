@@ -1,10 +1,10 @@
-package com.example.coinweb.service;
+package com.example.coinwebadmin.service;
 
-import com.example.coinweb.repository.MemberRepository;
-import com.example.coinweb.repository.PaymentRepository;
+import com.example.coinwebadmin.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,11 +19,19 @@ public class PaymentService {
         return repository.insertPayment(params);
     }
 
-    public List<HashMap<String, Object>> selectAllPayment(String email) {
+    public ArrayList<HashMap<String, Object>> selectAllPayment(String email) {
         return repository.selectAllPayment(email);
+    }
+
+    public ArrayList<HashMap<String, Object>> selectAllPaymentAdmin() {
+        return repository.selectAllPaymentAdmin();
     }
 
     public Double selectTotalPayment(String email) {
         return repository.selectTotalPayment(email);
+    }
+
+    public double selectAmountPayment() {
+        return repository.selectAmountPayment();
     }
 }

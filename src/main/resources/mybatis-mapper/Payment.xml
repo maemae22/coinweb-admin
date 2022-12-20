@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.coinweb.mapper.PaymentMapper">
+<mapper namespace="com.example.coinwebadmin.mapper.PaymentMapper">
     <insert id="insertPayment" parameterType="hashmap">
         insert into payment
             (email, amount, uid)
@@ -23,5 +23,13 @@
         from
             payment
         where email=#{email}
+    </select>
+    
+    <select id="selectAmountPayment" resultType="double">
+        select sum(amount) from payment
+    </select>
+
+    <select id="selectAllPaymentAdmin" resultType="hashmap">
+        select id, email, amount, uid, indate from payment
     </select>
 </mapper>

@@ -1,10 +1,10 @@
-package com.example.coinweb.service;
+package com.example.coinwebadmin.service;
 
-import com.example.coinweb.mapper.BuyMapper;
-import com.example.coinweb.repository.BuyRepository;
+import com.example.coinwebadmin.repository.BuyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,5 +23,13 @@ public class BuyService {
 
     public Double selectTotalBuy(String email) {
         return repository.selectTotalBuy(email);
+    }
+
+    public int selectCntBuy() {
+        return repository.selectCntBuy();
+    }
+
+    public ArrayList<HashMap<String, Object>> selectAllBuyAdmin() {
+        return repository.selectAllBuyAdmin();
     }
 }

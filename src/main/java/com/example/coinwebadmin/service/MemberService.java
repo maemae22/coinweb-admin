@@ -1,9 +1,10 @@
-package com.example.coinweb.service;
+package com.example.coinwebadmin.service;
 
-import com.example.coinweb.repository.MemberRepository;
+import com.example.coinwebadmin.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @Service
@@ -18,5 +19,13 @@ public class MemberService {
 
     public String selectMember(HashMap<String, String> params) {
         return repository.selectMember(params);
+    }
+
+    public int selectCntMember() {
+        return repository.selectCntMember();
+    }
+
+    public ArrayList<HashMap<String, Object>> selectAllMember() {
+        return repository.selectAllMember();
     }
 }
